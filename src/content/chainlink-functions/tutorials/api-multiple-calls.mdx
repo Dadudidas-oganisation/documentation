@@ -7,7 +7,7 @@ title: "Call Multiple Data Sources"
 import { Aside } from "@components"
 import ChainlinkFunctions from "@features/chainlink-functions/common/ChainlinkFunctions.astro"
 
-This tutorial shows you how make multiple API calls from your smart contract to a Decentralized Oracle Network. After [OCR](/chainlink-functions/resources/architecture) completes off-chain computation and aggregation, the DON returns the asset price to your smart contract. This example returns the `BTC/USD` price.
+This tutorial shows you how make multiple API calls from your smart contract to a Decentralized Oracle Network. After [OCR](/chainlink-functions/resources/architecture) completes offchain computation and aggregation, the DON returns the asset price to your smart contract. This example returns the `BTC/USD` price.
 
 This guide assumes that you know how to build HTTP requests and how to use secrets. Read the [API query parameters](/chainlink-functions/tutorials/api-query-parameters) and [API use secrets](/chainlink-functions/tutorials/api-use-secrets) guides before you follow the example in this document.
 To build a decentralized asset price, send a request to the DON to fetch the price from many different API providers. Then, calculate the median price. The API providers in this example are:
@@ -30,13 +30,15 @@ To build a decentralized asset price, send a request to the DON to fetch the pri
   Chainlink Functions account.
 </Aside>
 
-## Before you begin
+<ChainlinkFunctions section="prerequisites-guides" />
 
-1. **[Complete the setup steps in the Getting Started guide](/chainlink-functions/getting-started):** The Getting Started Guide shows you how to set up your environment with the necessary tools for these tutorials. You can re-use the same consumer contract for each of these tutorials.
+## Tutorial
 
-1. Make sure your subscription has enough LINK to pay for your requests. Also, you must maintain a minimum balance to upload encrypted secrets to the DON (Read the [minimum balance for uploading encrypted secrets section](/chainlink-functions/resources/billing#minimum-balance-for-uploading-encrypted-secrets) to learn more). You can check your subscription details (including the balance in LINK) in the [Chainlink Functions frontend](/chainlink-functions/resources/subscriptions). If your subscription runs out of LINK, follow the [Fund a Subscription](/chainlink-functions/resources/subscriptions#fund-a-subscription) guide. This guide recommends maintaining at least 2 LINK within your subscription.
+This tutorial is configured to get the median `BTC/USD` price from multiple data sources. For a detailed explanation of the code example, read the [Examine the code](#examine-the-code) section.
 
-1. You can locate the scripts used in this tutorial in the [_examples/8-multiple-apis_ directory](https://github.com/smartcontractkit/smart-contract-examples/tree/main/functions-examples/examples/8-multiple-apis).
+You can locate the scripts used in this tutorial in the [_examples/8-multiple-apis_ directory](https://github.com/smartcontractkit/smart-contract-examples/tree/main/functions-examples/examples/8-multiple-apis).
+
+1. Make sure your subscription has enough LINK to pay for your requests. Also, you must maintain a minimum balance to upload encrypted secrets to the DON (Read the [minimum balance for uploading encrypted secrets section](/chainlink-functions/resources/billing#minimum-balance-for-uploading-encrypted-secrets) to learn more). You can check your subscription details (including the balance in LINK) in the [Chainlink Functions Subscription Manager](/chainlink-functions/resources/subscriptions). If your subscription runs out of LINK, follow the [Fund a Subscription](/chainlink-functions/resources/subscriptions#fund-a-subscription) guide. This guide recommends maintaining at least 2 LINK within your subscription.
 
 1. Get a free API key from [CoinMarketCap](https://coinmarketcap.com/api/) and note your API key.
 
@@ -45,15 +47,6 @@ To build a decentralized asset price, send a request to the DON to fetch the pri
    ```shell
    npx env-enc set
    ```
-
-## Tutorial
-
-<Aside type="note" title="Set up your environment variables">
-  This tutorial has some unique `.env.enc` setup steps. Make sure that you configured your `.env.enc` file with the
-  necessary variables in the [Before you begin](#before-you-begin) section.
-</Aside>
-
-This tutorial is configured to get the median `BTC/USD` price from multiple data sources. For a detailed explanation of the code example, read the [Examine the code](#examine-the-code) section.
 
 To run the example:
 
@@ -71,7 +64,7 @@ To run the example:
    node examples/8-multiple-apis/request.js
    ```
 
-   The script runs your function in a sandbox environment before making an on-chain transaction:
+   The script runs your function in a sandbox environment before making an onchain transaction:
 
    ```text
    $ node examples/8-multiple-apis/request.js
@@ -122,7 +115,7 @@ To run the example:
    - Your request was successfully sent to Chainlink Functions. The transaction in this example is [0xb53e0e598fa97d0b74d9b6895230a2686f44a62666877efdd78961c2282857ba](https://mumbai.polygonscan.com/tx/0xb53e0e598fa97d0b74d9b6895230a2686f44a62666877efdd78961c2282857ba) and the request ID is `0x489b0cf659152ff19807ee7a4325828dc17eb1a38eb97c1ca840815dc2e02575`.
 
    - The DON successfully fulfilled your request. The total cost was: `0.000039224977086446 LINK`.
-   - The consumer contract received a response in `bytes` with a value of `0x0000000000000000000000000000000000000000000000000000000000273a45`. Decoding it off-chain to `uint256` gives you a result: `2570821`. The median BTC price is 25708.21 USD.
+   - The consumer contract received a response in `bytes` with a value of `0x0000000000000000000000000000000000000000000000000000000000273a45`. Decoding it offchain to `uint256` gives you a result: `2570821`. The median BTC price is 25708.21 USD.
 
 ## Examine the code
 
@@ -134,7 +127,9 @@ To run the example:
 
 #### source.js
 
-The Decentralized Oracle Network will run the [JavaScript code](https://github.com/smartcontractkit/smart-contract-examples/blob/main/functions-examples/examples/8-multiple-apis/source.js). The code is self-explanatory and has comments to help you understand all the steps. **Note**: The custom source code you want to execute in a Functions request can use vanilla [deno](https://deno.land/) but cannot use any require statements or imported modules.
+The Decentralized Oracle Network will run the [JavaScript code](https://github.com/smartcontractkit/smart-contract-examples/blob/main/functions-examples/examples/8-multiple-apis/source.js). The code is self-explanatory and has comments to help you understand all the steps.
+
+<ChainlinkFunctions section="deno-importe-notes" />
 
 This JavaScript source code uses [Functions.makeHttpRequest](/chainlink-functions/api-reference/javascript-source#http-requests) to make HTTP requests. The source code fetches the BTC/USD price from different data sources: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest/`, `https://api.coingecko.com/api/v3/simple/price`, and `https://api.coinpaprika.com/v1/tickers/btc-bitcoin` and then calculate the median price. you can read the API docs of [CoinMarketCap](https://coinmarketcap.com/api/documentation/v1/), [CoinGecko](https://www.coingecko.com/en/api/documentation), and [CoinPaprika](https://api.coinpaprika.com/) for details.
 

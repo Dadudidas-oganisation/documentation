@@ -94,11 +94,11 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
           url: "data-feeds/solana",
         },
         {
-          title: "Using Data Feeds Off-Chain",
+          title: "Using Data Feeds Offchain",
           url: "data-feeds/solana/using-data-feeds-off-chain",
         },
         {
-          title: "Using Data Feeds On-Chain",
+          title: "Using Data Feeds Onchain",
           url: "data-feeds/solana/using-data-feeds-solana",
         },
       ],
@@ -171,7 +171,7 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
               url: "architecture-overview/architecture-decentralized-model?parent=dataFeeds",
             },
             {
-              title: "Off-Chain Reporting",
+              title: "Offchain Reporting",
               url: "architecture-overview/off-chain-reporting?parent=dataFeeds",
             },
           ],
@@ -278,7 +278,7 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
               url: "architecture-overview/architecture-decentralized-model?parent=dataStreams",
             },
             {
-              title: "Off-Chain Reporting",
+              title: "Offchain Reporting",
               url: "architecture-overview/off-chain-reporting?parent=dataStreams",
             },
           ],
@@ -317,10 +317,6 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
         {
           title: "Supported Networks",
           url: "chainlink-automation/overview/supported-networks",
-        },
-        {
-          title: "Billing",
-          url: "chainlink-automation/overview/automation-economics",
         },
         {
           title: "Release Notes",
@@ -449,7 +445,7 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
               url: "architecture-overview/architecture-decentralized-model?parent=automation",
             },
             {
-              title: "Off-Chain Reporting",
+              title: "Offchain Reporting",
               url: "architecture-overview/off-chain-reporting?parent=automation",
             },
           ],
@@ -546,6 +542,10 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
           title: "Automate your Functions (Custom Logic Automation)",
           url: "chainlink-functions/tutorials/automate-functions-custom-logic",
         },
+        {
+          title: "Using Imports with Functions",
+          url: "chainlink-functions/tutorials/importing-packages",
+        },
       ],
     },
     {
@@ -560,8 +560,8 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
           url: "chainlink-functions/resources/secrets",
         },
         {
-          title: "Functions playground",
-          url: "chainlink-functions/resources/playground",
+          title: "Simulate your Functions",
+          url: "chainlink-functions/resources/simulation",
         },
         {
           title: "Managing Subscriptions",
@@ -636,7 +636,7 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
               url: "architecture-overview/architecture-decentralized-model?parent=chainlinkFunctions",
             },
             {
-              title: "Off-Chain Reporting",
+              title: "Offchain Reporting",
               url: "architecture-overview/off-chain-reporting?parent=chainlinkFunctions",
             },
           ],
@@ -679,6 +679,10 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
         {
           title: "Billing",
           url: "vrf/v2/estimating-costs",
+        },
+        {
+          title: "Release Notes",
+          url: "vrf/release-notes",
         },
       ],
     },
@@ -786,7 +790,7 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
               url: "architecture-overview/architecture-decentralized-model?parent=vrf",
             },
             {
-              title: "Off-Chain Reporting",
+              title: "Offchain Reporting",
               url: "architecture-overview/off-chain-reporting?parent=vrf",
             },
           ],
@@ -821,6 +825,24 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
         {
           title: "Supported Networks",
           url: "ccip/supported-networks",
+          children: [
+            {
+              title: "Mainnet v1.2.0",
+              url: "ccip/supported-networks/v1_2_0/mainnet",
+            },
+            {
+              title: "Mainnet v1.0.0 (Deprecated)",
+              url: "ccip/supported-networks/v1_0_0/mainnet",
+            },
+            {
+              title: "Testnet v1.2.0",
+              url: "ccip/supported-networks/v1_2_0/testnet",
+            },
+            {
+              title: "Testnet v1.0.0 (Deprecated)",
+              url: "ccip/supported-networks/v1_0_0/testnet",
+            },
+          ],
         },
         {
           title: "Billing",
@@ -840,16 +862,20 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
           url: "ccip/tutorials/cross-chain-tokens",
         },
         {
-          title: "Transfer Tokens With Data",
+          title: "Transfer Tokens with Data",
           url: "ccip/tutorials/programmable-token-transfers",
         },
         {
-          title: "Transfer Tokens With Data - Defensive Example",
+          title: "Transfer Tokens with Data - Defensive Example",
           url: "ccip/tutorials/programmable-token-transfers-defensive",
         },
         {
-          title: "Transfer Tokens Between EOAs",
+          title: "Transfer Tokens between EOAs",
           url: "ccip/tutorials/cross-chain-tokens-from-eoa",
+        },
+        {
+          title: "Transfer USDC with Data",
+          url: "ccip/tutorials/usdc",
         },
         {
           title: "Send Arbitrary Data",
@@ -958,7 +984,7 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
               url: "architecture-overview/architecture-decentralized-model?parent=ccip",
             },
             {
-              title: "Off-Chain Reporting",
+              title: "Offchain Reporting",
               url: "architecture-overview/off-chain-reporting?parent=ccip",
             },
           ],
@@ -1259,7 +1285,7 @@ export const SIDEBAR: Partial<Record<Sections, SectionEntry[]>> = {
               url: "architecture-overview/architecture-decentralized-model",
             },
             {
-              title: "Off-Chain Reporting",
+              title: "Offchain Reporting",
               url: "architecture-overview/off-chain-reporting",
             },
           ],

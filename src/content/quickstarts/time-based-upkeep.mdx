@@ -29,9 +29,11 @@ Before you start this tutorial, complete the following items:
   - The gas currency for the chain where your contract is deployed. For this example, get 0.5 Sepolia ETH from one of the available [public faucets](https://faucetlink.to/sepolia).
   - ERC-677 LINK. [Get 20 testnet LINK](https://faucets.chain.link/).
 
+## Steps to implement
+
 <Accordion title="Deploy a smart contract to automate" number={1}>
 
-If you already have a deployed smart contract that you want to automate, make sure the contract has an external or public function that modifies the state of the contract on-chain. In Solidity, `pure` and `view` functions do not update the state, so even if these functions are public, you cannot automate them with Chainlink Automation.
+If you already have a deployed smart contract that you want to automate, make sure the contract has an external or public function that modifies the state of the contract onchain. In Solidity, `pure` and `view` functions do not update the state, so even if these functions are public, you cannot automate them with Chainlink Automation.
 
 If you do not already have a deployed contract, follow these instructions to deploy a simple counter contract. This contract has a public `counter` variable that you can update by adding the `updateAmount` value to it.
 
@@ -66,9 +68,9 @@ If you do not already have a deployed contract, follow these instructions to dep
 
 <Accordion title="Provide contract information" number={2}>
 
-If your smart contract is already verified on-chain, [skip to the next step](#register-a-new-upkeep).
+If your smart contract is already verified onchain, [skip to the next step](#register-a-new-upkeep).
 
-Chainlink Automation needs your smart contract's [Application Binary Interface](https://docs.soliditylang.org/en/develop/abi-spec.html) (ABI) in order to automate the public functions in your contract. If your smart contract is not verified on-chain, you must either provide your contract's ABI manually, or verify the contract on-chain.
+Chainlink Automation needs your smart contract's [Application Binary Interface](https://docs.soliditylang.org/en/develop/abi-spec.html) (ABI) in order to automate the public functions in your contract. If your smart contract is not verified onchain, you must either provide your contract's ABI manually, or verify the contract onchain.
 
 <TabsContent client:visible>
 <Fragment slot="tab.1">Verify your contract</Fragment>
@@ -182,9 +184,7 @@ All times are in UTC
 
 </Accordion>
 
-<Accordion title="Specify the time schedule" number={5}>
-
-### Entering upkeep details
+<Accordion title="Entering upkeep details" number={5}>
 
 To complete the upkeep registration process, you must enter some information about your upkeep including its name, gas limit, starting balance LINK, and contact information.
 

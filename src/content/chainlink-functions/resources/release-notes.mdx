@@ -6,6 +6,22 @@ title: "Chainlink Functions Release Notes"
 
 import { Aside } from "@components"
 
+## Module imports supported on mainnet - 2024-01-12
+
+- You can use external module imports with Chainlink Functions source code on mainnet networks. See the [Using Imports with Functions](/chainlink-functions/tutorials/importing-packages) tutorial to see an example of how to import and use imported modules with your Functions source code. This feature requires the [Functions Toolkit NPM package](https://www.npmjs.com/package/@chainlink/functions-toolkit/v/0.2.7) `v0.2.7` or later.
+
+## Arbitrum Mainnet support - 2024-01-10
+
+Chainlink Functions is available on [Arbitrum Mainnet](/chainlink-functions/supported-networks#arbitrum-mainnet).
+
+## Module imports and new testnets - 2023-12-15
+
+- You can use external module imports with Chainlink Functions source code on testnet networks. See the [Using Imports with Functions](/chainlink-functions/tutorials/importing-packages) tutorial to see an example of how to import and use imported modules with your Functions source code. This feature requires the [Functions Toolkit NPM package](https://www.npmjs.com/package/@chainlink/functions-toolkit/v/0.2.7) `v0.2.7` or later.
+
+  This feature is available only on testnets. Modules will not import or execute on Functions requests for mainnet networks at this time.
+
+- Chainlink Functions is available on the [Arbitrum Sepolia](/chainlink-functions/supported-networks#arbitrum-sepolia-testnet) testnet.
+
 ## Open Beta - 2023-09-29
 
 - Chainlink Functions is available as an open beta on the following blockchains:
@@ -28,7 +44,7 @@ import { Aside } from "@components"
 
 - New features:
   - You must accept the Chainlink Functions Terms of Service (ToS) before using Chainlink Functions. The ToS must be accepted by subscriptions owners. Once accepted, the ToS is transitive to all contracts belong the the subscription, so your end-users don't have to accept the ToS to interact with your contracts. Read this [guide](/chainlink-functions/resources/subscriptions#create-a-subscription) to learn more.
-  - The Chainlink Functions frontend is available at [functions.chain.link](https://functions.chain.link/). The Functions frontend lets you manage your subscriptions.
+  - The Chainlink Functions Subscription Manager is available at [functions.chain.link](https://functions.chain.link/). The Functions Subscription Manager lets you manage your subscriptions.
   - Chainlink Functions uses threshold encryption to handle users' encrypted secrets. Read the [secrets conceptual page](/chainlink-functions/resources/secrets) to learn more.
   - Users can host their encrypted secrets within the DON. This hosting method is called DON-hosted. Read the [secrets conceptual page](/chainlink-functions/resources/secrets) to learn more.
   - JavaScript source code can only use vanilla [Deno](https://deno.land/). Read the [JavaScript code API reference](/chainlink-functions/api-reference/javascript-source) to learn more.
